@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Fecha inicial</label>
+    <input type="datetime-local" id="txtfechai" />
+
+    <label>Fecha final</label>
+    <input type="datetime-local" id="txtfechaf" />
+
+    <input type="button" value="Calcular" id="btnCalcular" />
+
+    <label id="resultado"></label>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+        const fechai = document.getElementById('txtfechai');
+        const fechaf = document.getElementById('txtfechaf');
+        const result = document.getElementById('resultado');
+        const btnCalcular = document.getElementById('btnCalcular');
+
+
+        btnCalcular.addEventListener('click', () => {
+            debugger;
+            
+            var start = moment(fechai.value);
+            var end = moment(fechaf.value);
+
+            let duration = moment.duration(end.diff(start));
+            let hours = duration.asHours();
+
+            result.textContent = `Resultado en horas: ${hours}`;
+
+        });
+
+
+    </script>
+</body>
+
+</html>
